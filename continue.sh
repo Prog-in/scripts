@@ -26,10 +26,10 @@ else
 fi
 
 # Run the noft version of the program
-mpirun -np $(nproc) ./jacobi_noft -p $half_nproc -q $half_nproc -NB 1024 >> noft.log
+mpirun --hostfile /var/nfs_dir/hostfile -np $(nproc) ./jacobi_noft -p $half_nproc -q $half_nproc -NB 1024 >> noft.log
 
 # Run the ulfm version of the program
-mpirun -np $(nproc) --with-ft=ulfm --oversubscribe ./jacobi_ulfm -p $half_nproc -q $half_nproc -NB 1024 >> ulfm.log
+mpirun --hostfile /var/nfs_dir/hostfile -np $(nproc) --with-ft=ulfm --oversubscribe ./jacobi_ulfm -p $half_nproc -q $half_nproc -NB 1024 >> ulfm.log
 
 # Run the scr version of the program
-mpirun -np $(nproc) ./jacobi_scr -p $half_nproc -q $half_nproc -NB 1024 >> scr.log
+mpirun --hostfile /var/nfs_dir/hostfile -np $(nproc) ./jacobi_scr -p $half_nproc -q $half_nproc -NB 1024 >> scr.log
