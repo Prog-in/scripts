@@ -2,7 +2,7 @@
 
 NFS_DIR="/var/nfs_dir"
 HOSTFILE_PATH="$NFS_DIR/hostfile.txt"
-INSTANCE_IP=$(ip addr show | grep -Eo 'inet (([0-9]{1,3}\.){3}[0-9]{1,3})' | grep -vE '127\.0\.0\.1|172\.[1-9]\.|10\.[0-9]\.|192\.168\.' | awk '{print $2}')
+INSTANCE_IP=$(hostname -I | awk '{print $1}')
 
 # Debug: Exibe o endereço IP detectado
 echo "Endereço IP da instância: $INSTANCE_IP"
