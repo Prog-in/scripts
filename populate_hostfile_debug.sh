@@ -2,7 +2,8 @@
 
 NFS_DIR="/var/nfs_dir"
 HOSTFILE_PATH="$NFS_DIR/hostfile.txt"
-INSTANCE_IP=$(hostname -I | awk '{print $1}')
+#INSTANCE_IP=$(hostname -I | awk '{print $1}')
+INSTANCE_IP=$(curl ifconfig.io)
 
 # Debug: Exibe o endereço IP detectado
 echo "Endereço IP da instância: $INSTANCE_IP"
